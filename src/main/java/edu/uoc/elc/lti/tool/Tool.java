@@ -17,6 +17,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -29,7 +30,7 @@ import java.util.Map;
  * @author xaracil@uoc.edu
  */
 @RequiredArgsConstructor
-public class Tool {
+public class Tool implements Serializable {
 	@Getter
 	String issuer;
 	@Getter

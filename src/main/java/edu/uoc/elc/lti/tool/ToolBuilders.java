@@ -6,12 +6,14 @@ import edu.uoc.lti.deeplink.DeepLinkingTokenBuilder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+import java.io.Serializable;
+
 /**
  * @author xaracil@uoc.edu
  */
 @RequiredArgsConstructor
 @Getter
-public class ToolBuilders {
+public class ToolBuilders implements Serializable {
 	private final ClientCredentialsTokenBuilder clientCredentialsTokenBuilder;
 	private final AccessTokenRequestBuilder accessTokenRequestBuilder;
 	private final DeepLinkingTokenBuilder deepLinkingTokenBuilder;

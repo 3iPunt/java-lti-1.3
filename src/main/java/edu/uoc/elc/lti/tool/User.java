@@ -4,13 +4,15 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 /**
  * @author xaracil@uoc.edu
  */
 @Getter
 @Setter
 @Builder
-public class User {
+public class User implements Serializable  {
 	private String id;
 	private String givenName;
 	private String familyName;

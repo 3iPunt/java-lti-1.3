@@ -3,11 +3,13 @@ package edu.uoc.elc.lti.platform.accesstoken;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 
+import java.io.Serializable;
+
 /**
  * @author xaracil@uoc.edu
  */
 @Getter
-public class AccessTokenResponse {
+public class AccessTokenResponse  implements Serializable {
 	private String scope;
 
 	@JsonProperty("access_token")
