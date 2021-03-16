@@ -3,6 +3,7 @@ package edu.uoc.elc.lti.tool;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -15,5 +16,8 @@ public class Context {
 	private String label;
 	private String title;
 	private List<String> type;
+	// Required in Canvas
+	private LinkedHashMap errors;
+	private String validation_context;
 
 }
