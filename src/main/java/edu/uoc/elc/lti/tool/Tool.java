@@ -166,6 +166,11 @@ public class Tool implements Serializable {
 		return null;
 	}
 
+	public Map<String, String> getCustomParameters() {
+		Class<Map<String, String>> customClass = (Class) Map.class;
+		return this.claimAccessor.get(ClaimsEnum.CUSTOM, customClass);
+	}
+
 	public MessageTypesEnum getMessageType() {
 		try {
 			return MessageTypesEnum.valueOf(this.claimAccessor.get(ClaimsEnum.MESSAGE_TYPE));
