@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -21,4 +22,7 @@ public class Settings {
 	private String text;
 	private String data;
 	private String deep_link_return_url;
+	// Required in Canvas
+	private LinkedHashMap errors;
+	private String validation_context;
 }

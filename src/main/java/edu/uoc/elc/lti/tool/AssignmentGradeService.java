@@ -3,6 +3,7 @@ package edu.uoc.elc.lti.tool;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -14,6 +15,9 @@ public class AssignmentGradeService {
 	private List<String> scope;
 	private String lineitems;
 	private String lineitem;
+	// Required in Canvas
+	private LinkedHashMap errors;
+	private String validation_context;
 
 	public boolean canReadResults() {
 		return scope != null && scope.contains(ScopeEnum.AGS_SCOPE_RESULT.getScope());
