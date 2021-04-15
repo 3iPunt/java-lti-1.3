@@ -25,4 +25,8 @@ public class Settings {
 	// Required in Canvas
 	private LinkedHashMap errors;
 	private String validation_context;
+	// Required in Moodle
+	private boolean accept_copy_advice;
+	private boolean accept_unsigned;
+	private boolean can_confirm;
 }

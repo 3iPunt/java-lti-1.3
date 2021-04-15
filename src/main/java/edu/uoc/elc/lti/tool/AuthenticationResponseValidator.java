@@ -36,7 +36,10 @@ public class AuthenticationResponseValidator {
 			this.claimAccessor.decode(token);
 
 		} catch (Throwable ex) {
+			ex.printStackTrace();
 			reason = "Invalid token";
+			System.err.println(reason);
+			System.err.println("And token is :"+token);
 			return false;
 		}
 
@@ -46,6 +49,7 @@ public class AuthenticationResponseValidator {
 		 */
 		if (!this.toolDefinition.getPlatform().equals(this.claimAccessor.getIssuer())) {
 			reason = "Issuer invalid";
+			System.err.println(reason);
 			return false;
 		}
 
@@ -59,6 +63,7 @@ public class AuthenticationResponseValidator {
 		final List<String> audiences = Arrays.asList(audienceClaim.split(","));
 		if (!audiences.contains(this.toolDefinition.getClientId())) {
 			reason = "Audience invalid";
+			System.err.println(reason);
 			return false;
 		}
 
@@ -68,6 +73,7 @@ public class AuthenticationResponseValidator {
 		if (audiences.size() > 1) {
 			if (this.claimAccessor.getAzp() == null) {
 				reason = "Azp claim is not present";
+				System.err.println(reason);
 				return false;
 			}
 		}
@@ -78,6 +84,7 @@ public class AuthenticationResponseValidator {
 		if (this.claimAccessor.getAzp() != null) {
 			if (!this.toolDefinition.getClientId().equals(this.claimAccessor.getAzp())) {
 				reason = "Azp invalid";
+				System.err.println(reason);
 				return false;
 			}
 		}
@@ -96,6 +103,7 @@ public class AuthenticationResponseValidator {
 		 */
 		if (this.claimAccessor.getExpiration().before(new Date())) {
 			reason = "Expired";
+			System.err.println(reason);
 			return false;
 		}
 
@@ -115,6 +123,7 @@ public class AuthenticationResponseValidator {
 		 */
 		if (this.claimAccessor.get(ClaimsEnum.NONCE) == null) {
 			reason = "Nonce not present";
+			System.err.println(reason);
 			return false;
 		}
 
