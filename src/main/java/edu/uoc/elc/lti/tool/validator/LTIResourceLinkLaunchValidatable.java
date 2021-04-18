@@ -37,12 +37,13 @@ public class LTIResourceLinkLaunchValidatable extends LTICoreValidator {
 				reason = "Invalid state";
 				return false;
 			}
-			if (claimAccessor.get(ClaimsEnum.NONCE) != null) {
+			/*if (claimAccessor.get(ClaimsEnum.NONCE) != null) {
 				if (!claimAccessor.get(ClaimsEnum.NONCE).equals(oidcLaunchSession.getNonce())) {
+
 					setReasonToInvalidClaim(ClaimsEnum.NONCE);
 					return false;
 				}
-			}
+			}*/
 		}
 		return true;
 	}
