@@ -67,6 +67,7 @@ public class LTICoreValidator implements LaunchValidatable {
 		final String deploymentId = claimAccessor.get(ClaimsEnum.DEPLOYMENT_ID);
 		if (isEmpty(deploymentId)) {
 			setReasonToMissingRequiredClaim(ClaimsEnum.DEPLOYMENT_ID);
+			this.reason += "DeploymentId is empty";
 			return false;
 		}
 		if (deploymentId.trim().length() > ID_MAX_LENGTH) {
@@ -75,8 +76,8 @@ public class LTICoreValidator implements LaunchValidatable {
 			return false;
 		}
 		if (!toolDefinition.getDeploymentId().equals(deploymentId)) {
-			this.reason += String.format("DeploymentId is not the same with current value '%s' and expected '%s'", deploymentId, toolDefinition.getDeploymentId());
 			setReasonToInvalidClaim(ClaimsEnum.DEPLOYMENT_ID);
+			this.reason += String.format("DeploymentId is not the same with current value '%s' and expected '%s'", deploymentId, toolDefinition.getDeploymentId());
 			return false;
 		}
 
