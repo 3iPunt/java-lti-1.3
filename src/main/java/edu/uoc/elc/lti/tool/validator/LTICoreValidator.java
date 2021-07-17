@@ -71,9 +71,11 @@ public class LTICoreValidator implements LaunchValidatable {
 		}
 		if (deploymentId.trim().length() > ID_MAX_LENGTH) {
 			setReasonToInvalidClaim(ClaimsEnum.DEPLOYMENT_ID);
+			this.reason += String.format("DeploymentId length is '%d' with current value '%s' and expected '%s'", deploymentId.trim().length(), deploymentId, toolDefinition.getDeploymentId());
 			return false;
 		}
 		if (!toolDefinition.getDeploymentId().equals(deploymentId)) {
+			this.reason += String.format("DeploymentId is not the same with current value '%s' and expected '%s'", deploymentId, toolDefinition.getDeploymentId());
 			setReasonToInvalidClaim(ClaimsEnum.DEPLOYMENT_ID);
 			return false;
 		}
